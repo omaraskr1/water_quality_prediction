@@ -15,6 +15,7 @@ class MLRegistry:
         endpoint, _ = Endpoint.objects.get_or_create(name=endpoint_name, owner=owner)
 
         # get algorithm
+        # M   
         database_object, algorithm_created = MLAlgorithm.objects.get_or_create(
                 name=algorithm_name,
                 description=algorithm_description,

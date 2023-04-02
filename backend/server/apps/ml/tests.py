@@ -2,7 +2,7 @@ from django.test import TestCase
 import inspect
 from apps.ml.registry import MLRegistry
 
-from apps.ml.income_classifier.random_forest import RandomForestClassifier
+from apps.ml.waterqualilty_classifierr.random_forest import RandomForestClassifier
 
 
 
@@ -10,7 +10,7 @@ class MLTests(TestCase):
     def test_registry(self):
         registry = MLRegistry()
         self.assertEqual(len(registry.endpoints), 0)
-        endpoint_name = "waterqualilty_classifier"
+        endpoint_name = "waterqualilty_classifierr"
         algorithm_object = RandomForestClassifier()
         algorithm_name = "random forest"
         algorithm_status = "production"
@@ -22,6 +22,7 @@ class MLTests(TestCase):
         registry.add_algorithm(endpoint_name, algorithm_object, algorithm_name,
                     algorithm_status, algorithm_version, algorithm_owner,
                     algorithm_description, algorithm_code)
+        
         # there should be one endpoint available
         self.assertEqual(len(registry.endpoints), 1)
    
@@ -36,7 +37,7 @@ class MLTests(TestCase):
             "Conductivity": 568.304671,
             "Organic_carbon": 13.626624,
             "Trihalomethanes": 75.952337,
-            "Turbidity": 4.732954,
+            "Turbidity": 4.732954
            
         }
         my_alg = RandomForestClassifier()
